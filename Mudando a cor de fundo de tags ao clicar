@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body> <!--abre a tag body-->
+    <p>this is a p element</p> <!--criação de parágrafos -->
+    <p>this is also a p element</p>
+    <p>this is also a p element - Click the button to change the background color of all p element in this document</p>
+
+    <button onclick="myfunction()">try it</button> <!--um botão "try it" é criado, e ao clicar , ele chama a função "myfunctiom"-->
+
+    <script> //inicio de um bloco de JS
+        function myfunction(){ //declaração da função
+            var myNodelist = document.getElementsByTagName('p'); //pega os elementos da tag "p"
+            var i; //criação de variável
+            for (i=0;i < myNodelist.length;i++){ // loop for criado para percorrer todos os elementos "p"
+                myNodelist[i].style.backgroundColor = 'red'; //defini a cor de fundo de cada "p" percorrido como vermelho 
+            } 
+        }
+    </script> <!--fim do bloco de JS-->
+</body> <!-- fim do body-->
+
+</html><!--fecha tag html-->TYPE html> 

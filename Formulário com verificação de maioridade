@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+
+<title>Formulário</title>
+</head>
+<body>
+
+<form onsubmit="return verificarIdade()">
+    <span>Nome:</span>
+    <input type="text" id="nome" name="nome" required>
+
+    <span>Gênero:</span>
+    <select id="genero" name="genero" required>
+        <option value="">Selecione...</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Outros">Outros</option>
+    </select>
+
+    <span>Data de Nascimento:</span>
+    <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+    <span>CPF:</span>
+    <input type="text" id="cpf" name="cpf" >
+
+    <input type="submit" value="Enviar">
+</form>
+
+<script>
+    function verificarIdade() {
+        var dataNascimento = document.getElementById("dataNascimento").value;
+        var hoje = new Date();
+        var nascimento = new Date(dataNascimento);
+        var idade = hoje.getFullYear() - nascimento.getFullYear();
+        var mes = hoje.getMonth() - nascimento.getMonth();
+
+        if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+            idade--;
+        }
+
+        if (idade < 18) {
+            alert("Você precisa ser maior de idade para prosseguir.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>
